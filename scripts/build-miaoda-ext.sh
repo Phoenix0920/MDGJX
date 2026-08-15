@@ -4,12 +4,12 @@ cd $(dirname $0)/..
 ROOTDIR=$PWD
 ROOTPKGDIR=$PWD/pkg
 ROOTPKGINFODIR=$PWD/pkginfo
-chmod +x $MDGJX_EXT_ROOT/pipeline/get-ext-version.sh
-extGVersion=`$MDGJX_EXT_ROOT/pipeline/get-ext-version.sh`
+chmod +x $MDGJX_EXT_ROOT/scripts/get-ext-version.sh
+extGVersion=`$MDGJX_EXT_ROOT/scripts/get-ext-version.sh`
 echo "extGVersion: $extGVersion"
 
-chmod +x $PWD/pipeline/update-miaoda-config.sh
-$PWD/pipeline/update-miaoda-config.sh
+chmod +x $PWD/scripts/main-update-miaoda-config.sh
+$PWD/scripts/main-update-miaoda-config.sh
 
 [ -d $ROOTPKGDIR ] && rm -rf $ROOTPKGDIR
 mkdir $ROOTPKGDIR

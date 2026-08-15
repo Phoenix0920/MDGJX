@@ -1,5 +1,5 @@
 #!/bin/bash
-cd $MDGJX_EXT_ROOT/extensions-meta
+cd $MDGJX_EXT_ROOT/meta
 npm i -S -D --force
 npm run compile
 
@@ -17,5 +17,5 @@ done
 
 for eachItem in $(ls ./upx-temp); do
     echo "extracting $eachItem"
-    node $MDGJX_EXT_ROOT/extensions-meta/dist/convert-upx.js $PWD/upx-temp/$eachItem
+    node $MDGJX_EXT_ROOT/meta/dist/convert-upx.js $PWD/upx-temp/$eachItem
 done

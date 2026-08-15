@@ -44,7 +44,7 @@ _.forEach(extList, (x, d, n) => {
 
 const miaodaDistAllFile = path.join(
   MDGJX_EXT_ROOT,
-  "extensions-meta",
+  "meta",
   "miaoda-dist-all.json"
 );
 

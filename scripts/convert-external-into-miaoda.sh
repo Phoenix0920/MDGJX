@@ -2,7 +2,7 @@
 # this purpose of this script is to convert the external plugin so that we use it in miaoda 
 set -e
 cd $MDGJX_EXT_ROOT
-externalDIR=$MDGJX_EXT_ROOT/external
+externalDIR=$MDGJX_EXT_ROOT/third-party
 extensionDIR=$MDGJX_EXT_ROOT/extensions
 echo "externalDIR: $externalDIR"
 for eachext in `ls $externalDIR`

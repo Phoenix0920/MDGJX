@@ -7,8 +7,8 @@ ROOTPKGDIR=$PWD/pkg
 ROOTPKGINFODIR=$PWD/pkginfo
 
 
-chmod +x $MDGJX_EXT_ROOT/pipeline/get-ext-version.sh
-extGVersion=`$MDGJX_EXT_ROOT/pipeline/get-ext-version.sh`
+chmod +x $MDGJX_EXT_ROOT/scripts/get-ext-version.sh
+extGVersion=`$MDGJX_EXT_ROOT/scripts/get-ext-version.sh`
 echo "extGVersion: $extGVersion"
 
 if [ -z $releaseOrTest ];then
@@ -38,7 +38,7 @@ doScp(){
   sftp -P 26609  $myserver <<< "put $ROOTPKGDIR/* $extPkgDir"
   sftp -P 26609  $myserver <<< "put $ROOTPKGINFODIR/* $extPkgInfoDir"
   targetMiaodaFile=$extPkgInfoDir/miaoda-dist-all-$extGVersion.json
-  srcDistFile=$MDGJX_EXT_ROOT/extensions-meta/miaoda-dist-all.json
+  srcDistFile=$MDGJX_EXT_ROOT/meta/miaoda-dist-all.json
   sftp -P 26609  $myserver <<< "put $srcDistFile $targetMiaodaFile"
   ssh $myserver -p 26609 "date +%s > /home/appuser/extstatic/ext-root/timestamp.txt"
   ssh $myserver -p 26609 "date +%s > $extPkgInfoDir/timestamp.txt"
@@ -46,7 +46,7 @@ doScp(){
   ssh $myserver -p 26609 "mkdir -p $extPkgExtractDir"
   # extract it
   ssh $myserver -p 26609 "rm -rf $extPkgInfoDir/miaoda-extract.sh"
-  sftp -P 26609  $myserver <<< "put $MDGJX_EXT_ROOT/extensions-meta/miaoda-extract.sh $extPkgInfoDir/miaoda-extract.sh"
+  sftp -P 26609  $myserver <<< "put $MDGJX_EXT_ROOT/meta/miaoda-extract.sh $extPkgInfoDir/miaoda-extract.sh"
   ssh $myserver -p 26609 "chmod +x $extPkgInfoDir/miaoda-extract.sh"
   ssh $myserver -p 26609 "$extPkgInfoDir/miaoda-extract.sh $extPkgInfoDir $extPkgDir $extPkgExtractDir $targetMiaodaFile"
   # final commit

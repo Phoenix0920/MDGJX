@@ -7,8 +7,8 @@ ROOTPKGDIR=$PWD/pkg
 ROOTPKGINFODIR=$PWD/pkginfo
 
 
-chmod +x $MDGJX_EXT_ROOT/pipeline/get-ext-version.sh
-extGVersion=`$MDGJX_EXT_ROOT/pipeline/get-ext-version.sh`
+chmod +x $MDGJX_EXT_ROOT/scripts/get-ext-version.sh
+extGVersion=`$MDGJX_EXT_ROOT/scripts/get-ext-version.sh`
 echo "extGVersion: $extGVersion"
 
 if [ -z $releaseOrTest ];then
